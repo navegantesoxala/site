@@ -33,7 +33,11 @@
         <img src="logo_navegantes_oxala_melhorada.png" alt="Logo Navegantes de Oxalá" />
         <span>Casa de Caridade<br>Navegantes de Oxalá</span>
       </div>
-      <ul>
+
+      <!-- Botão para mobile -->
+      <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+      
+      <ul class="nav-links">
         <li><a href="index.html">Início</a></li>
         <li><a href="sobre.html">História</a></li>
         <li><a href="acoes.html">Ações Sociais</a></li>
@@ -114,5 +118,16 @@
       <a href="mailto:navegantesdeoxalase@gmail.com">E-mail</a>
     </p>
   </footer>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  });
+</script>
+
 </body>
 </html>

@@ -240,3 +240,46 @@ footer a:hover {
     max-width: none;
   }
 }
+
+/* Ocultar botão de menu no desktop */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #2939e6;
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* Estilo base do menu */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #222;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 0.5rem 0;
+  }
+}
+/* Fim do CSS */
