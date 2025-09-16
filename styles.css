@@ -282,4 +282,53 @@ footer a:hover {
     margin: 0.5rem 0;
   }
 }
+
+.evento-destaque {
+  background: linear-gradient(135deg, #ffd700, #ff69b4);
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+  border-bottom: 4px solid #fff;
+}
+
+.evento-banner h2,
+.evento-banner h3 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.evento-banner h3 {
+  font-size: 1.4rem;
+  color: #fff6f6;
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+
+.evento-banner h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.evento-banner p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.evento-btn {
+  background-color: #fff;
+  color: #c2185b;
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.evento-btn:hover {
+  background-color: #ffe0e0;
+}
+
 /* Fim do CSS */
