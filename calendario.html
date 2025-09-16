@@ -158,37 +158,58 @@
     document.addEventListener('DOMContentLoaded', () => {
       const tabela = document.querySelector('#calendario-dinamico tbody');
       const filtroMes = document.getElementById('filtroMes');
-      const sheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQYNEBFT_jtZWlaV6_w_utihWvTz3kKQ72Dhr_5hOMzeU78uBZ3SIjOrHiycx7EIuH-_hli4oW6Fd9R/pubhtml?gid=0&single=true&output=html';
+      const sheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQYNEBFT_jtZWlaV6_w_utihWvTz3kKQ72Dhr_5hOMzeU78uBZ3SIjOrHiycx7EIuH-_hli4oW6Fd9R/pub?gid=0&single=true&output=csv';
 
       const eventos = [];
 
       fetch(sheetURL)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(html, 'text/html');
-          const rows = doc.querySelectorAll('table tbody tr');
+  .then(res => res.text())
+  .then(csv => {
+    tabela.innerHTML = '';
+    eventos.length = 0;
 
-          tabela.innerHTML = '';
-          eventos.length = 0;
+    function parseCSV(csv) {
+  const lines = csv.trim().split('\n');
+  const result = [];
 
-          rows.forEach((row, index) => {
-            if (index === 0) return;
-            const cells = row.querySelectorAll('td');
-            if (cells.length >= 4) {
-              const data = cells[0].textContent.trim();
-              const hora = cells[1].textContent.trim();
-              const evento = cells[2].textContent.trim();
-              const descricao = cells[3].textContent.trim();
-              const dataObj = new Date(data.split('/').reverse().join('-'));
+  for (let i = 1; i < lines.length; i++) {
+    const regex = /(?:\"([^\"]*)\")|([^,]+)/g;
+    const values = [];
+    let match;
+    while ((match = regex.exec(lines[i]))) {
+      values.push(match[1] || match[2]);
+    }
 
-              eventos.push({ data, hora, evento, descricao, dataObj });
-            }
-          });
+    const [dataCompleta, hora, evento, descricao] = values;
+    if (dataCompleta && hora && evento && descricao) {
+      const dataLimpa = dataCompleta.replace(/["']/g, '').split(',')[1]?.trim() || dataCompleta;
+      const dataObj = new Date(dataLimpa.split('/').reverse().join('-'));
+      result.push({ data: dataLimpa, hora, evento, descricao, dataObj });
+    }
+  }
 
-          atualizarFiltroMes();
-          renderizarTabela('todos');
-        })
+  return result;
+}
+
+// Carrega e processa
+fetch(sheetURL)
+  .then(res => res.text())
+  .then(csv => {
+    tabela.innerHTML = '';
+    eventos.length = 0;
+
+    const dados = parseCSV(csv);
+    eventos.push(...dados);
+
+    atualizarFiltroMes();
+    renderizarTabela('todos');
+  });
+
+
+    atualizarFiltroMes();
+    renderizarTabela('todos');
+  })
+
         .catch(() => {
           tabela.innerHTML = '<tr><td colspan="4">Erro ao carregar eventos.</td></tr>';
         });
