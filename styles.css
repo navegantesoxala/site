@@ -269,7 +269,7 @@ footer a:hover {
   .nav-links {
     display: none;
     flex-direction: column;
-    background-color: #222;
+    background-color: #fff; /* <-- Fundo branco */
     width: 100%;
     padding: 1rem;
   }
@@ -281,7 +281,12 @@ footer a:hover {
   nav ul li {
     margin: 0.5rem 0;
   }
+
+  .nav-links a {
+    color: #000; /* <-- Texto preto */
+  }
 }
+/* Estilo para o banner de evento */
 
 .evento-destaque {
   background: linear-gradient(135deg, #ffd700, #ff69b4);

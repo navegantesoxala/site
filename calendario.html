@@ -1,3 +1,4 @@
+<!-- 👇 CÓDIGO COMPLETO ABAIXO 👇 -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,23 +7,47 @@
   <title>Calendário | Navegantes de Oxalá</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* Simple table styling for the calendar */
-    table {
+    #filtroMes {
+      margin: 1rem 0;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    #calendario-dinamico {
       width: 100%;
       border-collapse: collapse;
       margin-top: 20px;
     }
-    th, td {
-      border: 1px solid #e0e0e0;
-      padding: 12px;
-      text-align: left;
+
+    #calendario-dinamico th,
+    #calendario-dinamico td {
+  border: 1px solid #e0e0e0;
+  padding: 12px;
+  text-align: left;
+  vertical-align: top;
+  word-break: break-word;
     }
-    th {
+
+    #calendario-dinamico td:nth-child(4),
+    #calendario-dinamico th:nth-child(4) {
+    width: 50%;
+    }
+
+
+    #calendario-dinamico th {
       background-color: var(--primary-color);
       color: #fff;
     }
-    tr:nth-child(even) {
+
+    #calendario-dinamico tr:nth-child(even):not(:first-child) {
       background-color: #fdfdfd;
+    }
+
+    #calendario-dinamico tr.destacado {
+      background-color: #ffeeba !important;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -33,20 +58,18 @@
       <div class="evento-banner">
         <h2>🍭 Festa de Erê - 27 de Setembro!🎈</h2>
         <h2>🍬 A partir das 20:00 h🍫</h2>
-        <p>Junte-se a nós nesse comemoração cheia de alegria, doces, brincadeiras e muito axé em homenagem aos Erês!</p>
+        <p>Junte-se a nós nessa comemoração cheia de alegria, doces, brincadeiras e muito axé em homenagem aos Erês!</p>
         <a href="calendario.html" class="evento-btn">Ver detalhes no calendário</a>
       </div>
     </section>
-<!-- Fim do Bloco Anúncio de Eventos -->
+    <!-- Fim do Bloco Anúncio de Eventos -->
+
     <nav>
       <div class="logo">
         <img src="logo_navegantes_oxala_melhorada.png" alt="Logo Navegantes de Oxalá" />
         <span>Casa de Caridade<br>Navegantes de Oxalá</span>
       </div>
-
-      <!-- Botão para mobile -->
       <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
-      
       <ul class="nav-links">
         <li><a href="index.html">Início</a></li>
         <li><a href="sobre.html">História</a></li>
@@ -59,66 +82,45 @@
       </ul>
     </nav>
   </header>
+
   <section class="hero" style="height: 40vh; background-image: url('fachada-terreiro.jpg');">
     <div class="hero-content">
       <h1>Calendário de Giras e Eventos</h1>
       <p>Acompanhe nossa programação e participe conosco!</p>
     </div>
   </section>
+
   <section>
     <h2>Programação Mensal</h2>
-    <p>
-      Nossas giras são momentos de celebração, fé e aprendizado. Confira os
-      horários regulares e os principais eventos anuais. Para atualizações em
-      tempo real, siga-nos no Instagram @navegantesdeoxalase.
-    </p>
-    <p>
-      <strong>Todas as giras comunicadas são abertas ao público. Portões abertos a partir das 19:00 h, com início da gira pontualmente às 20:00 horas.</strong>
-    </p>
-    <table>
+    <p>Nossas giras são momentos de celebração, fé e aprendizado. Confira os horários regulares e os principais eventos anuais. Para atualizações em tempo real, siga-nos no Instagram @navegantesdeoxalase.</p>
+    <p><strong>Todas as giras comunicadas são abertas ao público. Portões abertos a partir das 19:00 h, com início da gira pontualmente às 20:00 horas.</strong></p>
+
+    <!-- Filtro por mês -->
+    <label for="filtroMes"><strong>Filtrar por mês:</strong></label>
+    <select id="filtroMes">
+      <option value="todos">Todos</option>
+    </select>
+
+    <!-- Tabela dinâmica -->
+    <table id="calendario-dinamico">
       <thead>
         <tr>
-          <th>Dia/Período</th>
+          <th>Data</th>
+          <th>Horário</th>
           <th>Evento</th>
           <th>Descrição</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Segundas-feira, 01/09/2025, 20:00h</td>
-          <td>Gira de Exu e Pombagira</td>
-          <td>Atendimento espiritual aberto ao público com energias de cura e orientação na força de Exu e Pombagira. <b>Acolhimento gratuito</b>. <p>Sua doação de velas, cachaça, produtos de limpeza, alimentos e roupas é bem-vinda.</p></td>
-        </tr>
-        <tr>
-          <td>Segunda-feira, 08/09/2025, 20:00h</td>
-          <td>Gira de Preto-Velho e Erê</td>
-          <td>Atendimento espiritual com Pretos Velhos e Erês, voltados ao consolo, sabedoria e aconselhamento. <b>Acolhimento gratuito</b>. <p>Sua doação de velas, cachaça, produtos de limpeza, alimentos e roupas é bem-vinda.</p></td>
-        </tr>
-        <tr>
-          <td>Sexta-feira, 12/09/2025, 20:00h</td>
-          <td>Gira de Malandro e Exu</td>
-          <td>Atendimento espiritual aberto ao público com energias de cura e orientação na força de Malandro e Exu. <b>Acolhimento gratuito</b>. <p>Sua doação de velas, cachaça, produtos de limpeza, alimentos e roupas é bem-vinda.</p></td>
-        </tr>
-        <td>Sexta-feira, 15/09/2025, 20:00h</td>
-          <td>Gira de Caboclo, Baiano e Boiadeiro</td>
-          <td>Atendimento espiritual aberto ao público na orientação e força das linhas de Caboclo, Baiano, e Boiadeiro. <b>Acolhimento gratuito</b>. <p>Sua doação de velas, cachaça, produtos de limpeza, alimentos e roupas é bem-vinda.</p></td>
-        </tr>
-        <tr>
-          <td>Sábado, 27/09/2025, 20:00h</td>
-          <td>Festa de Erê (Cosme e Damião)</td>
-          <td>Festa dedicada às crianças da comunidade com distribuição de brinquedos, doces e atividades educativas. <b>Evento Gratuito</b>.</td>
-        </tr>
-        </tr>
-        <td>Terça-feira, 30/09/2025, 20:00h</td>
-          <td>Gira em Homenagem a Xangô</td>
-          <td>Atendimento espiritual aberto ao público na orientação e força das linhas de Caboclo, Baiano, e Boiadeiro. <b>Acolhimento gratuito</b>. <p>Sua doação de velas, cachaça, produtos de limpeza, alimentos e roupas é bem-vinda.</p></td>
-        </tr>
-        </tbody>
+        <tr><td colspan="4">Carregando eventos...</td></tr>
+      </tbody>
     </table>
+
     <p style="margin-top: 10px; font-size: 0.9rem; font-style: italic; color: var(--text-color);">
       Programação sujeita a alterações. Para informações em tempo real, acesse o Instagram @navegantesdeoxalase
     </p>
   </section>
+
   <footer>
     <p>&copy; 2025 Casa de Caridade Navegantes de Oxalá — Todos os direitos reservados.</p>
     <p>Endereço: R. São Expedito, 161-93, Bairro Inácio Barbosa, Aracaju/SE | CEP: 49041-023</p>
@@ -128,28 +130,121 @@
       <a href="mailto:navegantesdeoxalase@gmail.com">E-mail</a>
     </p>
   </footer>
+
+  <!-- Scripts -->
   <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const toggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
 
-    toggle.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
+      toggle.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+      });
     });
-  });
-</script>
+  </script>
 
-<!-- Desliga automaticamente o Banner apos a data agendada -->
-<script>
-  const hoje = new Date();
-  const fimEvento = new Date("2025-09-28");
+  <!-- Banner Auto-Oculto -->
+  <script>
+    const hoje = new Date();
+    const fimEvento = new Date("2025-09-28");
+    const banner = document.querySelector('.evento-destaque');
+    if (banner && hoje > fimEvento) {
+      banner.style.display = 'none';
+    }
+  </script>
 
-  const banner = document.querySelector('.evento-destaque');
-  if (banner && hoje > fimEvento) {
-    banner.style.display = 'none';
-  }
-</script>
-<!-- Fim do codigo: Desliga automaticamente o Banner -->
+  <!-- Script do calendário dinâmico -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabela = document.querySelector('#calendario-dinamico tbody');
+      const filtroMes = document.getElementById('filtroMes');
+      const sheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQYNEBFT_jtZWlaV6_w_utihWvTz3kKQ72Dhr_5hOMzeU78uBZ3SIjOrHiycx7EIuH-_hli4oW6Fd9R/pubhtml?gid=0&single=true&output=html';
 
+      const eventos = [];
+
+      fetch(sheetURL)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          const rows = doc.querySelectorAll('table tbody tr');
+
+          tabela.innerHTML = '';
+          eventos.length = 0;
+
+          rows.forEach((row, index) => {
+            if (index === 0) return;
+            const cells = row.querySelectorAll('td');
+            if (cells.length >= 4) {
+              const data = cells[0].textContent.trim();
+              const hora = cells[1].textContent.trim();
+              const evento = cells[2].textContent.trim();
+              const descricao = cells[3].textContent.trim();
+              const dataObj = new Date(data.split('/').reverse().join('-'));
+
+              eventos.push({ data, hora, evento, descricao, dataObj });
+            }
+          });
+
+          atualizarFiltroMes();
+          renderizarTabela('todos');
+        })
+        .catch(() => {
+          tabela.innerHTML = '<tr><td colspan="4">Erro ao carregar eventos.</td></tr>';
+        });
+
+      filtroMes.addEventListener('change', () => {
+        renderizarTabela(filtroMes.value);
+      });
+
+      function atualizarFiltroMes() {
+        const mesesUnicos = new Set();
+        eventos.forEach(ev => {
+          const [dia, mes, ano] = ev.data.split('/');
+          mesesUnicos.add(`${ano}-${mes}`);
+        });
+
+        const ordenado = Array.from(mesesUnicos).sort();
+        ordenado.forEach(item => {
+          const [ano, mes] = item.split('-');
+          const nomeMes = new Date(`${ano}-${mes}-01`).toLocaleString('pt-BR', { month: 'long' });
+          const option = document.createElement('option');
+          option.value = item;
+          option.textContent = `${nomeMes} de ${ano}`;
+          filtroMes.appendChild(option);
+        });
+      }
+
+      function renderizarTabela(mesSelecionado) {
+        tabela.innerHTML = '';
+        const hoje = new Date();
+        const eventosFiltrados = eventos
+          .filter(ev => {
+            if (mesSelecionado === 'todos') return true;
+            const [ano, mes] = mesSelecionado.split('-');
+            return ev.dataObj.getFullYear() === parseInt(ano) && (ev.dataObj.getMonth() + 1) === parseInt(mes);
+          })
+          .sort((a, b) => a.dataObj - b.dataObj);
+
+        if (eventosFiltrados.length === 0) {
+          tabela.innerHTML = '<tr><td colspan="4">Nenhum evento para este mês.</td></tr>';
+          return;
+        }
+
+        const proximo = eventosFiltrados.find(ev => ev.dataObj >= hoje);
+        eventosFiltrados.forEach(ev => {
+          const tr = document.createElement('tr');
+          tr.classList.toggle('destacado', proximo && ev.data === proximo.data && ev.hora === proximo.hora);
+          tr.innerHTML = `
+            <td>${ev.data}</td>
+            <td>${ev.hora}</td>
+            <td>${ev.evento}${tr.classList.contains('destacado') ? ' 🎯' : ''}</td>
+            <td>${ev.descricao}</td>
+          `;
+          tabela.appendChild(tr);
+        });
+      }
+    });
+  </script>
 </body>
 </html>

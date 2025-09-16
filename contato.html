@@ -110,30 +110,51 @@
     </div>
   </section>
   <section>
-    <h2>Outros meios de contato</h2>
-    <p>Instagram: <a href="https://www.instagram.com/navegantesdeoxalase" target="_blank" rel="noopener">@navegantesdeoxalase</a></p>
-    <p>E-mail: <a href="mailto:navegantesdeoxalase@gmail.com">navegantesdeoxalase@gmail.com</a></p><p>Endereço: R. São Expedito, 161-93, Inácio Barbosa, Aracaju/SE</p>
-  </section>
-  <footer>
-    <p>&copy; 2025 Casa de Caridade Navegantes de Oxalá — Todos os direitos reservados.</p>
-    <p>Endereço: R. São Expedito, 161-93, Bairro Inácio Barbosa, Aracaju/SE</p>
-    <p>
-      <a href="https://www.instagram.com/navegantesdeoxalase" target="_blank" rel="noopener"><b>Siga-nos no Instagram</b></a>
-      &nbsp;
-    </p>
-  </footer>
-  <!-- Load reCAPTCHA API script -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <script>
+  <h2>Outros meios de contato</h2>
+  <p>
+    Instagram: 
+    <a href="https://www.instagram.com/navegantesdeoxalase" target="_blank" rel="noopener">
+      @navegantesdeoxalase
+    </a>
+  </p>
+  <p>
+    E-mail: 
+    <a href="mailto:navegantesdeoxalase@gmail.com">
+      navegantesdeoxalase@gmail.com
+    </a>
+  </p>
+  <p>
+    Endereço: R. São Expedito, 161-93, Inácio Barbosa, Aracaju/SE
+  </p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Casa de Caridade Navegantes de Oxalá — Todos os direitos reservados.</p>
+  <p>Endereço: R. São Expedito, 161-93, Bairro Inácio Barbosa, Aracaju/SE</p>
+  <p>
+    <a href="https://www.instagram.com/navegantesdeoxalase" target="_blank" rel="noopener">
+      <b>Siga-nos no Instagram</b>
+    </a>
+  </p>
+</footer>
+
+<!-- Google reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<!-- Script para menu responsivo -->
+<script>
   document.addEventListener('DOMContentLoaded', function () {
     const toggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
-    toggle.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
+    if (toggle && navLinks) {
+      toggle.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+      });
+    }
   });
 </script>
+
 
 </body>
 </html>
